@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: musa@gmail.com
+Date: Fri, 12 Oct 2018 09:13:57 -0000
+Message-ID: <153933563795.2584.4932758351450277728@mbabalawlar-PC>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/ogbam/reset/MQ/50c-37791727d459390851c7/
+
+Your username, in case you've forgotten: musa@gmail.com
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------

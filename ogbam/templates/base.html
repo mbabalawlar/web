@@ -1,0 +1,317 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html>
+
+ <title>{% block title %} base {% endblock %}</title>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="{% static 'ogbam/w3.css' %}">
+<link rel="stylesheet" href="{% static 'ogbam/ogbams.css' %}">
+
+<link rel="stylesheet" href="{% static 'ogbam/font-awesome.min.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+
+<body class="w3-light-grey">
+
+  <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i>Top</button>
+
+
+
+  <!-- Top container -->
+  
+  <div class="w3-bar w3-top w3-card w3-teal w3-large" style="z-index:4;font-size:30px;" >
+  
+    <button class="w3-bar-item w3-right w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"  style="cursor:
+    pointer"><i class="fa fa-bars"></i>☰</button>
+  
+    <span class="w3-bar-item w3-left" >Ogbams.com</span>
+  </div>
+  
+
+
+<!-- Sidebar/menu -->
+
+<nav class="w3-sidebar w3-card-4 w3-collapse w3-white w3-animate-left nav" style="z-index:3;width:250px;" id="mySidebar"><br>
+
+  <div class="w3-bar-block">
+    <a href="#" class="w3-right w3-bar-item  w3-hide-large w3-text-blue "  style="font-size:50px;text-decoration:none;" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&times</a>
+   
+  </div>
+
+    
+  <div class="w3-container w3-text-teal">
+    <h3>Dashboard</h3>
+    <p></p>
+
+  </div>
+
+  <div class="w3-bar-block">
+      {% if user.is_authenticated %}
+     
+           <button class="dropdown-btn w3-bar-item w3-button w3-padding w3-blue">Fund My Account<i class="fa fa-caret-down"></i>
+            </button>
+          
+            <div class="dropdown-container">
+          
+              <a href="{% url 'airtime' %}" class="w3-bar-item w3-button w3-padding">Recharge Pin</a>
+          
+              <a href="{% url 'share' %}" class="w3-bar-item w3-button w3-padding">Transfer</a>
+          
+              <a href="{% url 'share' %}" class="w3-bar-item w3-button w3-padding">Bank Transfer</a>
+          
+            </div>
+           <a href="{% url 'data' %}"  class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Buy Data Plan</a>
+
+           <a href=""  class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Airtime TopUp</a>
+
+           <button class="dropdown-btn w3-bar-item w3-button w3-padding ">History<i class="fa fa-caret-down"></i>
+           </button>
+         
+           <div class="dropdown-container">
+         
+             <a href="{% url 'history' %}" class="w3-bar-item w3-button w3-padding">Recharge Pin History</a>
+         
+             <a href="{% url 'history' %}" class="w3-bar-item w3-button w3-padding">Transfer History</a>
+         
+             <a href="{% url 'history' %}" class="w3-bar-item w3-button w3-padding">Vuocher History</a>
+         
+           </div>
+           <a href="{% url 'logout' %}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>Logout</a>
+          
+          
+           
+    {% else %}
+    <a href="{% url 'login' %}" class="w3-bar-item w3-button w3-blue w3-padding"><i class="fa fa-bell fa-fw"></i>Login</a>
+
+    <a href="{% url 'signup' %}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>Sign Up</a>
+
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>About</a>
+
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>Contact Us</a><br><br>
+
+       {% endif %}
+
+
+   
+  </div>
+
+</nav>
+
+
+
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+
+
+<!-- !PAGE CONTENT! -->
+
+<div class="w3-main" style="margin-left:250px;margin-top:43px;">
+
+
+
+    {% block content %}
+
+    {% endblock %}
+
+
+  
+
+  <div class="w3-container w3-black w3-padding-32">
+
+        <div class="w3-row">
+      
+          <div class="w3-container w3-third">
+      
+            <h5 class="w3-bottombar w3-border-blue">What we Offer</h5>
+      
+            <p>Airtime To Cash</p>
+      
+            <p>Data And Airtime TopUp</p>
+      
+            <p>Cable Subcription</p>
+      
+          </div>
+      
+       
+      
+          <div class="w3-container w3-third">
+      
+            <h5 class="w3-bottombar w3-border-teal">Contact Us</h5>
+      
+            <p>xxx,street lagos state</p>
+      
+            <p>xmbv@gmil.com</p>
+      
+            <p>09055xxxxx</p>
+      
+          </div>
+      
+          <div class="w3-container w3-third">
+      
+            <h5 class="w3-bottombar w3-border-red">About</h5>
+      
+            <p>gggdhhdhhdfhjfjjfjjjfjifjk</p>
+      
+            
+          </div>
+        </div>
+          
+          <div class=" w3-section w3-text-teal footer">
+                <p>Follow Us</p>
+
+  <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Facebook"><i class="fa fa-facebook"></i></a>
+
+  <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Twitter"><i class="fa fa-twitter"></i></a>
+
+  <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Google +"><i class="fa fa-google-plus"></i></a>
+
+  <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Google +"><i class="fa fa-instagram"></i></a>
+
+  <a class="w3-button w3-large w3-teal w3-hide-small" href="javascript:void(0)" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+          
+        </div>
+    </div>
+
+  <!-- Footer -->
+
+  <footer class="w3-container w3-padding-8 w3-teal w3-center" style="background-color:#01080e;" >
+
+    <p> All writt and reserved &copy <a href=" target=_blank">Mbabalawlar</a></p>
+
+  </footer>
+
+
+
+  <!-- End page content -->
+
+</div>
+
+
+
+<script>
+
+// Get the Sidebar
+
+var mySidebar = document.getElementById("mySidebar");
+
+
+
+// Get the DIV with overlay effect
+
+var overlayBg = document.getElementById("myOverlay");
+
+
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+
+function w3_open() {
+
+    if (mySidebar.style.display === 'block') {
+
+        mySidebar.style.display = 'none';
+
+        overlayBg.style.display = "none";
+
+    } else {
+
+        mySidebar.style.display = 'block';
+
+        overlayBg.style.display = "block";
+
+    }
+
+}
+
+
+
+// Close the sidebar with the close button
+
+function w3_close() {
+
+    mySidebar.style.display = "none";
+
+    overlayBg.style.display = "none";
+
+}
+
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    
+    window.onscroll = function() {scrollFunction()};
+    
+    
+    
+    function scrollFunction() {
+    
+        if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
+    
+            document.getElementById("myBtn").style.display = "block";
+    
+        } else {
+    
+            document.getElementById("myBtn").style.display = "none";
+    
+        }
+    
+    }
+    
+    
+    
+    // When the user clicks on the button, scroll to the top of the document
+    
+    function topFunction() {
+    
+        document.body.scrollTop = 0;
+    
+        document.documentElement.scrollTop = 0;
+    
+    }
+    
+  
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+
+    var i;
+    
+    
+    
+    for (i = 0; i < dropdown.length; i++) {
+    
+      dropdown[i].addEventListener("click", function() {
+    
+        this.classList.toggle("active");
+    
+        var dropdownContent = this.nextElementSibling;
+    
+        if (dropdownContent.style.display === "block") {
+    
+          dropdownContent.style.display = "none";
+    
+        } else {
+    
+          dropdownContent.style.display = "block";
+    
+        }
+    
+      });
+    
+    }
+    
+</script>
+
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,12 @@
+{% for field in form %}
+<Span class='w3-text-red'>{{field.errors}}</Span>
+<label class="w3-text-blue">{{field.label}}
+    {% if field.help_text %}
+    <span class='w3-text-green'>{{field.help_text}}</span>
+    {% endif %}
+</label>
+<div class="w3-input">{{field}}</div>
+{% endfor %}
+     
+
+
